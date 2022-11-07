@@ -14,7 +14,9 @@ class ProductController extends Controller
 {
 
     function product_list(){
+        
         $category = Product::with('categorie')->get();
+        // die($category);
         // $title = 'Product List';
 
      return view ('Admin.products.product_list',compact('category'));
@@ -43,6 +45,7 @@ class ProductController extends Controller
         $product->description=$request->description;
 
         if($request->hasFile('product_image'))
+       
         {
             $destination_path = "public/product_images/";
             $image = $request->file('product_image');

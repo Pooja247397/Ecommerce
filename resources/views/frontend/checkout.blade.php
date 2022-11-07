@@ -95,29 +95,27 @@
                   <th>Price</th>
                 </tr>
               </thead>
-              <tbody class="order-details-body">
+               <tbody class="order-details-body">
                 <tr>
                   <td>Product</td>
                   <td>Total</td>
                 </tr>
+                @foreach($product as $item)
                 <tr>
-                  <td>Strawberry</td>
-                  <td>$85.00</td>
+                <td class="product-name">{{$item->title}}</td>
+								<td class="product-price">${{$item->price}}</td>               
                 </tr>
-                <tr>
-                  <td>Berry</td>
-                  <td>$70.00</td>
-                </tr>
-                <tr>
-                  <td>Lemon</td>
-                  <td>$35.00</td>
-                </tr>
+                @endforeach
+
               </tbody>
               <tbody class="checkout-details">
+              
                 <tr>
-                  <td>Subtotal</td>
-                  <td>$190</td>
+                <td class="product-total"><?php
+									$total = $item->price * $item->quantity;
+									echo $total;?></td>
                 </tr>
+                
                 <tr>
                   <td>Shipping</td>
                   <td>$50</td>
@@ -126,7 +124,7 @@
                   <td>Total</td>
                   <td>$240</td>
                 </tr>
-              </tbody>
+              </tbody> 
             </table>
             <a href="#" class="boxed-btn">Place Order</a>
           </div>

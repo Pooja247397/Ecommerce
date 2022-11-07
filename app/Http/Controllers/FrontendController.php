@@ -10,6 +10,8 @@ class FrontendController extends Controller
     //
      function index()
     {
+       
+
         $product  = Product::all();
         return view('frontend.home',compact('product'));
     }
